@@ -50,7 +50,7 @@ def get_sprints(request):
             date = (start + datetime.timedelta(days = day))
             week_day = date.isoweekday()
             if (not  week_day in [6, 7]):
-                work_days.append({'day': date.day, 'name': NAME_DAYS[week_day-1].get ('name')})
+                work_days.append({'day': date.day, 'name': NAME_DAYS[week_day-1].get ('name'), 'date': date})
         sprint['workDays'] = work_days
     return JsonResponse(sprints, safe=False)
 
@@ -67,6 +67,6 @@ def get_sprint(request, sprint_id):
             date = (since + datetime.timedelta(days = day))
             week_day = date.isoweekday()
             if (not  week_day in [6, 7]):
-                work_days.append({'day': date.day, 'name': NAME_DAYS[week_day-1].get ('name')})
+                work_days.append({'day': date.day, 'name': NAME_DAYS[week_day-1].get ('name'), 'date': date})
         task['workDays'] = work_days
     return JsonResponse(tasks, safe=False)
