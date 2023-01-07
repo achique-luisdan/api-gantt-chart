@@ -65,4 +65,7 @@ def get_sprint(request, sprint_id):
             if (not  week_day in [6, 7]):
                 duration.append({'day': date.day, 'name': NAME_DAYS[week_day-1].get ('name'), 'date': date})
         task['duration'] = duration
+        if task.get('participant_id') != None:
+           task['participant'] = Participant.objects.values().get(id = task.get('participant_id'))
+           task.pop('participant_id')
     return JsonResponse(tasks, safe=False)
