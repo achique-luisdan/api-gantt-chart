@@ -1,9 +1,5 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-import calendar
-import pprint
-from django.http import HttpResponse
-import json
 
 from .models import Sprint, Task, Participant
 
@@ -42,8 +38,8 @@ NAME_DAYS = [
 def get_sprints(request):
     sprints = list (Sprint.objects.values().order_by('start').reverse())
     for i, sprint in enumerate (sprints):
-        start =  datetime.date(sprints[i].get('start').year, sprints[i].get('start').month, sprints[i].get('start').day)
-        end =  datetime.date(sprints[i].get('end').year, sprints[i].get('end').month, sprints[i].get('end').day)
+        start =  datetime.date(sprint.get('start').year, sprint.get('start').month, sprint.get('start').day)
+        end =  datetime.date(sprint.get('end').year, sprint.get('end').month, sprint.get('end').day)
         interval = end - start 
         work_days = []
         for day in range (interval.days + 1):
