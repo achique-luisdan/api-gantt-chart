@@ -21,6 +21,7 @@ class Task(models.Model):
     since = models.DateField(blank=True, null=True)
     until = models.DateField(blank=True, null=True)
     title = models.CharField(max_length=200)
+    percent = models.FloatField(default=0.0)
     content = models.TextField(blank=True, null=True)
     sprint = models.ForeignKey(Sprint, on_delete=models.CASCADE,  blank=True, null=True,)
     participant = models.ForeignKey(Participant, on_delete=models.CASCADE,  blank=True, null=True,)
