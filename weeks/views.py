@@ -62,11 +62,11 @@ def get_sprint(request, sprint_id):
         since =  datetime.date(task.get('since').year, task.get('since').month, task.get('since').day)
         until =  datetime.date(task.get('until').year, task.get('until').month, task.get('until').day)
         interval = until - since 
-        work_days = []
+        duration = []
         for day in range (interval.days + 1):
             date = (since + datetime.timedelta(days = day))
             week_day = date.isoweekday()
             if (not  week_day in [6, 7]):
-                work_days.append({'day': date.day, 'name': NAME_DAYS[week_day-1].get ('name'), 'date': date})
-        task['workDays'] = work_days
+                duration.append({'day': date.day, 'name': NAME_DAYS[week_day-1].get ('name'), 'date': date})
+        task['duration'] = duration
     return JsonResponse(tasks, safe=False)
