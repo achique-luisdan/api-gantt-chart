@@ -66,7 +66,7 @@ virtualenv djgantt
 En GNU/Linux:
 
 ```
-source djruletas/bin/activate
+source djgantt/bin/activate
 ```
 => (djgantt) developer@april:~/projects/entornos
 
