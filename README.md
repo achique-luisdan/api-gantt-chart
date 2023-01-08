@@ -22,6 +22,8 @@ python3 --version
 ```
 python3 -m pip install --upgrade pip
 ```
+  > En caso de que necesite permisos utilizar el comando seguido de ```--user```
+
 => Successfully installed pip-21.0.1
 
 ### Paso 3. Instalar gestor de entornos virtuales virtualenv
